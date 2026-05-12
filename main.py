@@ -22,7 +22,7 @@ def render_with_branches(lstring, step_size, angle):
     stack = [] # empty stack
 
     for char in lstring:
-        if char == "F":
+        if char == "F" or char == "G":
             t.forward(step_size)
         elif char == "+":
             t.right(angle)
@@ -37,18 +37,24 @@ def render_with_branches(lstring, step_size, angle):
             t.setpos(pos)
             t.setheading(hdg)
             t.pendown()
+        elif char == "X":
+            t.penup()
+            t.forward(step_size)
+            t.pendown
     
     screen.update()
     screen.mainloop
 
     turtle.done()
 
-axiom = "F"
+axiom = "FG+F+FG+F+FG+F"
 rules = {
-    "F": "FF[-F+F][+F-F]"
+    "F": "[G[+F][-F]]XX",
+    "G": "XGG",
+    "X": ""
     }
-iterations = 4
-step = 10
+iterations = 5
+step = 5
 angle = 60
 
 lstring = rewrite(axiom, rules, iterations)
