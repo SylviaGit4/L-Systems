@@ -47,10 +47,10 @@ def render_with_branches(lstring, step_size, angle):
 
     turtle.done()
 
-axiom = "FG+F+FG+F+FG+F"
+axiom = "F"
 rules = {
-    "F": "[G[+F][-F]]XX",
-    "G": "XGG",
+    "F": "",
+    "G": "",
     "X": ""
     }
 iterations = 5
